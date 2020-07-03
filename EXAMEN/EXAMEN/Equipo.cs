@@ -34,24 +34,40 @@ namespace EXAMEN
         internal Entrenador Entrenador { get => entrenador; set => entrenador = value; }
         internal Medico Medico { get => medico; set => medico = value; }
 
-        public void agregar_jugadores(Jugador j)
+        public void agregar_jugadores()
         {
             int num = jugadores_equipo.Count();
-            if ((j.Nacion.ToLower() == pais && eq_nacional==true)|| eq_liga==true)
+            while (num < 15)
             {
+                string op3 = Program.ShowOptions(Jugador.nombre_jugadores());
                 if (num < 15)
                 {
-                    jugadores_equipo.Add(j);
+                    foreach (Jugador en in Program.jugadores)
+                    {
+                        if (op3 == en.Name)
+                        {
+                            if ((en.Nacion.ToLower() == pais && eq_nacional == true) || eq_liga == true)
+                            {
+                                jugadores_equipo.Add(en);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Lo sentimos, todos losjugadores deben ser de la misma nacionalidad que el equipo. --> " + pais + "\n");
+                            }
+                            
+
+                        }
+                    }
+
                 }
                 else if (num >= 15)
                 {
                     Console.WriteLine("Este equipo ya posee sus 15 Jugadores");
                 }
+               
+                num++;
             }
-            else
-            {
-                Console.WriteLine("==Lo sentimos, todos losjugadores deben ser de lamisma nacionalidad que el equipo. --> "+pais+"==\n");
-            }
+           
         }
         
         

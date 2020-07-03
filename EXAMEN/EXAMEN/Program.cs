@@ -48,7 +48,16 @@ namespace EXAMEN
             Jugador jugador121 = new Jugador("jugador131", 25, 700, "argentino", "Jugador", 30, 20, false, 54);
             Jugador jugador131 = new Jugador("jugador141", 24, 800, "argentino", "Jugador", 30, 20, false, 47);
             Jugador jugador141 = new Jugador("jugador151", 23, 900, "argentino", "Jugador", 30, 20, true, 46);
-
+            List<Jugador> jjjk = new List<Jugador> { jugador0, jugador21, jugador101, jugador00, jugador111, jugador121, jugador131, jugador141, jugador21, jugador31, jugador41, jugador51, jugador61, jugador71, jugador81, jugador91 };
+            foreach (Jugador j in jjjk)
+            {
+                jugadores.Add(j);
+            }
+            List<Jugador> jjk = new List<Jugador> { jugador, jugador2, jugador1, jugador10, jugador11, jugador12, jugador13, jugador14, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8, jugador9 };
+            foreach (Jugador j in jjk)
+            {
+                jugadores.Add(j);
+            }
             Medico medico1 = new Medico("medico1", 55, 562, "venezolano", "Medico", 100);
             Medico medico2 = new Medico("medico2", 45, 562, "argentino", "Medico", 200);
             Medico medico3 = new Medico("medico3", 65, 562, "chileno", "Medico", 50);
@@ -63,6 +72,10 @@ namespace EXAMEN
             entrenadores.Add(entrenador1); entrenadores.Add(entrenador2); entrenadores.Add(entrenador3); entrenadores.Add(entrenador4); entrenadores.Add(entrenador5);
             Console.WriteLine("\tBIENVENIDO AL PROGRAMA DE EXAMEN DE CRISTIAN VERA\n\n" +
                 ">>(EN ESTE PROGRAMA NO PODRAS JUGAR SOLO CREAR TUS EQUIPOS)<<\n\n\n");
+
+            Console.WriteLine("\n\n\t\t======AVISO===USE LA PANTALLA COMPLETA DE SU CONSOLA ===============\n\n\n\n");
+
+
             Console.WriteLine("\t\t========================");
 
             int accion = '\0';
@@ -80,54 +93,65 @@ namespace EXAMEN
                 {
                     case 1:
                         Console.Clear();
-                        Console.WriteLine("================CREANDO JUGADORES===============\n\n");
+                        Console.WriteLine("\t\t================CREANDO JUGADORES===============\n\n");
                         Thread.Sleep(2000);
-                        Console.WriteLine("==========CREANDO MEDICOS Y ENTRENADORES===========\n\n");
+                        Console.WriteLine("\t\t==========CREANDO MEDICOS Y ENTRENADORES===========\n\n");
                         Thread.Sleep(2000);
-                        Console.WriteLine("===============CREANDO TUS EQUIPOS=================\n\n");
+                        Console.WriteLine("\t\t===============CREANDO TUS EQUIPOS=================\n\n");
                         Thread.Sleep(2000);
-                        Console.WriteLine("====================================================\n");
+                        Console.WriteLine("\t\t====================================================\n");
 
                         List<Jugador> jjj = new List<Jugador> { jugador0, jugador21, jugador101, jugador00, jugador111, jugador121, jugador131, jugador141, jugador21, jugador31, jugador41, jugador51, jugador61, jugador71, jugador81, jugador91 };
                         Equipo equipo2 = new Equipo("equipo2", entrenador3, medico2, "argentino", true, false);
                         foreach (Jugador j in jjj)
                         {
-                            equipo2.agregar_jugadores(j);
-                            jugadores.Add(j);
+                            equipo2.Jugadores_equipo.Add(j);
                         }
                         List<Jugador> jj = new List<Jugador> { jugador, jugador2, jugador1, jugador10, jugador11, jugador12, jugador13, jugador14, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8, jugador9 };
                         Equipo equipo1 = new Equipo("equipo1", entrenador1, medico1, "chileno", true, false);
                         foreach(Jugador j in jj)
                         {
-                            equipo1.agregar_jugadores(j);
-                            jugadores.Add(j);
+                            equipo1.Jugadores_equipo.Add(j);
                         }
                         Console.Clear();
-                        Console.WriteLine("===============TODO LISTO SE HAN CREADO 2 EQUIPOS LOS VERAN EN PANTALLA PRONTO=================\n\n");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("===============EQUIPO 1=================\n");
-                        Console.WriteLine("NOMBRE:"+equipo1.Name+" \n");
-                        Console.WriteLine("ENTRENADOR: \n"); equipo1.Entrenador.verInfo_Persona();
-                        Console.WriteLine("MEDICO: \n"); equipo1.Medico.verInfo_Persona();
-                        Console.WriteLine("TIPO: NACIONAL \n");
+                        Console.WriteLine("\t===============TODO LISTO SE HAN CREADO 2 EQUIPOS LOS VERAN EN PANTALLA PRONTO=================\n\n");
+                        Thread.Sleep(5000);
+                        Console.Clear();
+                        Console.WriteLine("\t\t\t   ====================================================\n");
+
+                        Console.WriteLine("\n\t\t\t\t===============EQUIPO 1=================\n");
+                        Console.WriteLine("====================================================\n");
+                        Console.WriteLine(" NOMBRE:"+equipo1.Name+" \n");
+                        equipo1.Entrenador.verInfo_Persona();
+                        Console.WriteLine("\n");
+                        equipo1.Medico.verInfo_Persona();
+                        Console.WriteLine("\n TIPO DE EQUIPO: NACIONAL \n");
                         foreach (Jugador ju in equipo1.Jugadores_equipo)
                         {
                             Console.WriteLine("====================================================\n");
                             ju.verInfo_Persona();
-                            Console.WriteLine("DEFENSA: " + ju.Ptos_defensa + " ATAQUE: " + ju.Ptos_ataque + "CAMISETA: " + ju.N_camiseta + " ARQUERO: " + ju.Arquero.ToString());
+                            Console.WriteLine(">DEFENSA: " + ju.Ptos_defensa + " >ATAQUE: " + ju.Ptos_ataque + " >CAMISETA: " + ju.N_camiseta + " >ARQUERO: " + ju.Arquero.ToString());
                         }
                         Thread.Sleep(3000);
-                        Console.WriteLine("===============EQUIPO 2=================\n");
-                        Console.WriteLine("NOMBRE:" + equipo2.Name + " \n");
-                        Console.WriteLine("ENTRENADOR: \n"); equipo2.Entrenador.verInfo_Persona();
-                        Console.WriteLine("MEDICO: \n"); equipo2.Medico.verInfo_Persona();
-                        Console.WriteLine("TIPO: NACIONAL \n");
+                        Console.WriteLine("\t\t\t   ====================================================\n");
+
+                        Console.WriteLine("\t\t\t\t===============EQUIPO 2=================\n");
+                        Console.WriteLine("====================================================\n");
+
+                        Console.WriteLine(" NOMBRE:" + equipo2.Name + " \n");
+                        equipo2.Entrenador.verInfo_Persona();
+                        Console.WriteLine("\n");
+                        equipo2.Medico.verInfo_Persona();
+                        Console.WriteLine("\n TIPO DE EQUIPO: NACIONAL \n");
                         foreach (Jugador ju in equipo2.Jugadores_equipo)
                         {
                             Console.WriteLine("====================================================\n");
                             ju.verInfo_Persona();
-                            Console.WriteLine("DEFENSA: " + ju.Ptos_defensa + " ATAQUE: " + ju.Ptos_ataque + "CAMISETA: " + ju.N_camiseta + " ARQUERO: " + ju.Arquero.ToString());
+                            Console.WriteLine(">DEFENSA: " + ju.Ptos_defensa + " >ATAQUE: " + ju.Ptos_ataque + " >CAMISETA: " + ju.N_camiseta + " >ARQUERO: " + ju.Arquero.ToString());
                         }
+                        Console.WriteLine("====================================================\n");
+                        Console.WriteLine("====================================================\n");
+                        Console.WriteLine("====================================================\n\n\n");
                         break;
                     case 2:
                         Console.Clear();
@@ -141,15 +165,21 @@ namespace EXAMEN
                         {
                             case 1:
                                 Jugador.Crear_jugador();
-                                Console.WriteLine("JUGADOR CREADO EXITOSAMENTE");
+                                Console.WriteLine("\n>>>JUGADOR CREADO EXITOSAMENTE<<<\n\n");
+                                Thread.Sleep(2000);
+                                Console.Clear();
                                 break;
                             case 2:
                                 Entrenador.Crear_entrenador();
-                                Console.WriteLine("ENTRENADOR CREADO EXITOSAMENTE");
+                                Console.WriteLine("\n>>>ENTRENADOR CREADO EXITOSAMENTE<<<\n\n");
+                                Thread.Sleep(2000);
+                                Console.Clear();
                                 break;
                             case 3:
                                 Medico.Crear_medico();
-                                Console.WriteLine("MEDICO CREADO EXITOSAMENTE");
+                                Console.WriteLine("\n>>>MEDICO CREADO EXITOSAMENTE<<<\n\n");
+                                Thread.Sleep(2000);
+                                Console.Clear();
                                 break;
                             case 4:
                                 break;
@@ -196,23 +226,9 @@ namespace EXAMEN
                         }
                         Equipo equipo = new Equipo(nombequipo, nombentre, nopmbmed, nacequipo, nac, liga);
 
-                        Console.WriteLine("ESCOJA 15 jugadores PARA EL EQUIPO: ");
-                        int i = 0;
-                        while (i < 15) {
-                            string op3 = ShowOptions(Jugador.nombre_jugadores());
-                            Jugador nombjug;
-                            foreach (Jugador en in jugadores)
-                            {
-                                if (op3 == en.Name)
-                                {
-                                    equipo.agregar_jugadores(en);
-
-                                }
-                            }i++;
-                        }
+                        Console.WriteLine("ESCOJA 15 jugadores PARA EL EQUIPO: ");                        
+                        equipo.agregar_jugadores();
                         break;
-
-
                 }
             }
         }
